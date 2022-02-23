@@ -41,7 +41,11 @@ class Server {
             })
 
         this.app.post('/api', (req, res) =>  {
-            res.json({"Message": "Post Mil Fleurs"});
+            res.status(201).json({"Message": "Post Mil Fleurs"});
+            })
+
+        this.app.put('/api', (req, res) =>  {
+                res.status(500).json({"Message": "Put Mil Fleurs"});
             })
         
         this.app.delete('/api', (req, res) =>  {
@@ -49,9 +53,10 @@ class Server {
             })
         
         this.app.patch('/api', (req, res) =>  {
-            res.json({"Message": "Patch Mil Fleurs"});
+            res.json({"Message": "Patch v Mil Fleurs"});
         })
     }
+    
 
     listen = (port) =>{
 
