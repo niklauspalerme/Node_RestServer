@@ -37,9 +37,20 @@ class Server {
     routes =  () => {
 
         this.app.get('/api', (req, res) =>  {
-            res.send('Hello World')
+            res.json({"Message": "Mil Fleurs"});
             })
- 
+
+        this.app.post('/api', (req, res) =>  {
+            res.json({"Message": "Post Mil Fleurs"});
+            })
+        
+        this.app.delete('/api', (req, res) =>  {
+                res.json({"Message": "Delete Mil Fleurs"});
+            })
+        
+        this.app.patch('/api', (req, res) =>  {
+            res.json({"Message": "Patch Mil Fleurs"});
+        })
     }
 
     listen = (port) =>{
