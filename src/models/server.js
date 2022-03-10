@@ -18,6 +18,7 @@ class Server {
     constructor () {
         this.app = express();
         //Se crean y se ejecutan los metodos
+        this.usuarioPath = '/api/usuarios';
         this.middlewares();
         this.routes();
         
@@ -39,25 +40,7 @@ class Server {
 
     routes =  () => {
 
-        this.app.get('/api', (req, res) =>  {
-            res.json({"Message": "Mil Fleurs"});
-            })
-
-        this.app.post('/api', (req, res) =>  {
-            res.status(201).json({"Message": "Post Mil Fleurs"});
-            })
-
-        this.app.put('/api', (req, res) =>  {
-                res.status(500).json({"Message": "Put Mil Fleurs"});
-            })
-        
-        this.app.delete('/api', (req, res) =>  {
-                res.json({"Message": "Delete Mil Fleurs"});
-            })
-        
-        this.app.patch('/api', (req, res) =>  {
-            res.json({"Message": "Patch v Mil Fleurs"});
-        })
+        this.app.use(this.usuarioPath, require('../routes/user'));
     }
     
 
