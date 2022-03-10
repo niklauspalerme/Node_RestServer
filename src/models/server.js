@@ -1,7 +1,8 @@
 /////////////////////////////////////////////////////////////
-// Importaciones t Requeriments
+// Importaciones y Requeriments
 
-const express = require('express')
+const express = require('express');
+const cors = require('cors');
 
 
 /////////////////////////////////////////////////////////////
@@ -30,6 +31,8 @@ class Server {
 
         //Directorio Publico
         this.app.use( express.static('src/public') );
+        //CORSnpm run
+        this.app.use(cors());
 
     }
 
