@@ -32,8 +32,12 @@ class Server {
 
         //Directorio Publico
         this.app.use( express.static('src/public') );
-        //CORSnpm run
+        
+        //CORS
         this.app.use(cors());
+
+        //Lectura y parseo de body
+        this.app.use(express.json());
 
     }
 

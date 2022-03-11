@@ -14,7 +14,14 @@ const usuarioGet = (req, res = response ) =>  {
 
 
 const usuarioPost = (req, res) =>  {
-    res.status(201).json({"Message": "Post Mil Fleurs"});
+
+    const {nombre, edad} = req.body
+
+    res.status(201).json({
+        "Message": "Post Mil Fleurs",
+        "Nombre": nombre,
+        "Edad": edad
+    });
 }
 
 const usuarioPut =  (req, res) =>  {
