@@ -1,15 +1,26 @@
 /////////////////////////////////////////////////////////////
 // Importaciones
 
-const {response} = require('express');
+const {response, request} = require('express');
 
 
 /////////////////////////////////////////////////////////////
 // Funciones Controllers de Usuario
 
-const usuarioGet = (req, res = response ) =>  {
+const usuarioGet = (req = request , res = response ) =>  {
 
-    res.status(200).json({"Message": "Mil Fleurs"});
+    const {q ='', nombre = 'No Name', page = '0', limit = '1'} = req.query
+
+
+
+
+    res.status(200).json({
+        "Message": "Mil Fleurs",
+        q,
+        nombre,
+        page,
+        limit
+    });
 }
 
 
@@ -24,11 +35,21 @@ const usuarioPost = (req, res) =>  {
     });
 }
 
-const usuarioPut =  (req, res) =>  {
-    res.status(500).json({"Message": "Put Mil Fleurs"});
+const usuarioPut =  (req = request, res) =>  {
+
+    
+    const id = req.params.id;
+
+
+    res.status(500).json({
+        "Message": "Put Mil Fleurs",
+        id
+    });
 }
 
 const usuarioDelete = (req, res) =>  {
+
+
     res.status(200).json({"Message": "Delete Mil Fleurs"});
 }
 
